@@ -1,0 +1,54 @@
+name: ueransim
+base: core24
+version: '3.2.6+git'
+summary: Open source 5G UE and RAN (gNodeB) implementation.
+description: |
+  UERANSIM (pronounced "ju-i ræn sɪm"), is the open source state-of-the-art
+  5G UE and RAN (gNodeB) simulator. UE and RAN can be considered as a 5G
+  mobile phone and a base station in basic terms. The project can be used
+  for testing 5G Core Network and studying 5G System.
+
+website: https://github.com/aligungr/UERANSIM/wiki
+source-code: https://github.com/aligungr/UERANSIM
+icon: snap/local/logo.png
+license: GPL-3.0
+
+grade: stable
+confinement: strict
+
+apps:
+  nr-gnb:
+    command: usr/bin/nr-gnb
+    plugs:
+      - network
+      - network-bind
+      - network-control
+  nr-ue:
+    command: usr/bin/nr-ue
+    plugs:
+      - network
+      - network-bind
+      - network-control
+  nr-cli:
+    command: usr/bin/nr-cli
+    plugs:
+      - network
+      - network-bind
+      - network-control
+
+parts:
+  ueransim:
+    source: "https://github.com/aligungr/UERANSIM.git"
+    source-commit: "528061fe10389876da58d3bd15e8cba6d7c152a9"
+    plugin: nil
+    build-packages:
+      - cmake
+      - libsctp-dev
+      - lksctp-tools
+      - make
+    stage-packages:
+      - libsctp1
+    override-build: |
+      make
+      mkdir -p $CRAFT_PART_INSTALL/usr/bin
+      cp $CRAFT_PART_BUILD/build/* $CRAFT_PART_INSTALL/usr/bin/
