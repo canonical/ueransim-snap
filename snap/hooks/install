@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+# Create ueransim config files
+cp "$SNAP/config/gnb.yaml" "$SNAP_COMMON/gnb.yaml"
+cp "$SNAP/config/ue.yaml" "$SNAP_COMMON/ue.yaml"
