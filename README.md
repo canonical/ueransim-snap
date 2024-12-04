@@ -16,24 +16,19 @@ sudo snap install ueransim
 sudo snap connect ueransim:network-control
 ```
 
-To run the gNodeB, create a configuration file in
-`/var/snap/ueransim/common/gnb.yml` and run the command:
+To run the gNodeB, edit the configuration file in
+`/var/snap/ueransim/common/gnb.yml` as root and run the command:
 
 ```bash
 sudo ueransim.nr-gnb -c /var/snap/ueransim/common/gnb.yml
 ```
 
+To run the UE, edit the configuration file in
+`/var/snap/ueransim/common/ue.yml` as root and run the command:
+
+```bash
+sudo ueransim.nr-ue -c /var/snap/ueransim/common/ue.yml
+```
+
 Because ueransim is a confined snap, it can only read and write to its own
 directory: `/var/snap/ueransim/common`.
-
-## Build
-
-To build this snap, you will need a machine with the following requirements:
-- Processor: x86-64 dual-core processor
-- OS: Ubuntu >= 20.04
-- Memory: 8GB RAM
-
-Run
-```bash
-snapcraft
-```

@@ -52,3 +52,9 @@ parts:
       make
       mkdir -p $CRAFT_PART_INSTALL/usr/bin
       cp $CRAFT_PART_BUILD/build/* $CRAFT_PART_INSTALL/usr/bin/
+
+  config:
+    plugin: dump
+    source: snap/local/
+    organize:
+      '*.yaml': config/
