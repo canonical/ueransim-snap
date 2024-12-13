@@ -1,9 +1,14 @@
 name: main
 on:
-  push:
   pull_request:
+    types: [edited, opened, reopened, synchronize]
     branches:
       - main
+      - v**
+  push:
+    branches:
+      - main
+      - v**
 
 jobs:
   build:
