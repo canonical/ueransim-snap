@@ -1,6 +1,6 @@
 name: ueransim
 base: core24
-version: '3.2.6+git'
+version: '3.2.7'
 summary: Open source 5G UE and RAN (gNodeB) implementation.
 description: |
   UERANSIM (pronounced "ju-i ræn sɪm"), is the open source state-of-the-art
@@ -39,7 +39,7 @@ apps:
 parts:
   ueransim:
     source: "https://github.com/aligungr/UERANSIM.git"
-    source-commit: "528061fe10389876da58d3bd15e8cba6d7c152a9"
+    source-tag: "v3.2.7"
     plugin: nil
     build-packages:
       - cmake
