@@ -1,6 +1,5 @@
 # Contributing
 
-
 Install snapcraft:
 
 ```bash
